@@ -76,4 +76,10 @@ public class MainActivity extends AppCompatActivity {
         mWifi_list = (ListView) findViewById(R.id.list_wifi);
         mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mMacList);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mTimer.cancel();
+    }
 }
